@@ -26,6 +26,7 @@
 - Network errors from git/Codex: document the failure and ask the user to refresh permissions (e.g., rerun `/permissions` or restart with `codex --yolo resume`).
 
 ## References
-- OpenAI agents: https://platform.openai.com/docs/guides/agents
-- Codex CLI: https://github.com/continuum-llms/codex-cli
-- Anthropic agents & Claude Code: https://docs.anthropic.com
+- OpenAI Agents quickstart: https://platform.openai.com/docs/guides/agents
+- Codex CLI documentation: https://github.com/continuum-llms/codex-cli
+- Anthropic agents overview: https://docs.anthropic.com/en/docs/agents/overview
+- Claude Code install & usage: https://docs.anthropic.com/en/docs/build-with-claude/claude-code/install
