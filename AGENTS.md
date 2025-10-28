@@ -1,29 +1,31 @@
 # Agent Operating Guide
 
 ## Environment
-- You are working in a Codespace for this repo; read `README.md` if you need the human-facing overview.
-- Default branch is `main`. Push after each commit so GitHub stays current.
+- Work inside this Codespace; consult `README.md` for the human overview when needed.
+- Stay on `main` unless told otherwise. Push after each commit so GitHub mirrors local progress.
 
 ## Start-of-Session Checklist
 1. `git status`
 2. `git pull --rebase`
-3. `git branch --show-current` (stay on `main` unless the user asks otherwise)
+3. `git branch --show-current`
+4. Skim `README.md` for recent edits if you have been away.
 
 ## Working Loop
-- Make focused edits; run `git diff` before staging.
-- Commit and push each batch: `git add -A && git commit -m "…" && git push`.
-- Call out anything unclear to the user instead of guessing.
+1. Scope a single task; keep unrelated work out of the same commit.
+2. After editing, inspect changes with `git diff`.
+3. Ship the batch: `git add -A && git commit -m "…" && git push`.
+4. Ask the user when requirements conflict or context is missing.
 
-## Tooling quick facts
-- Codex CLI: launch with `codex --yolo`. If network actions fail, run `/permissions` or restart with `codex --yolo resume`.
-- Claude Code: launch with `claude`.
-- GitHub auth hiccups: `gh auth login --web`.
-- Codex login callback: copy the URL and `curl "<URL>"` (see `README.md` for the pattern).
+## Tooling & Access
+- Codex CLI: start with `codex --yolo`; if network access is blocked, run `/permissions` or restart with `codex --yolo resume`.
+- Claude Code: run `claude`.
+- GitHub authentication issues: `gh auth login --web`.
+- Codex login callback: copy the provided URL and `curl "<URL>"` (pattern in `README.md`).
 
 ## Troubleshooting
-- Push rejected (non-fast-forward): `git pull --rebase`, resolve conflicts, commit, push.
-- Missing command: install in this Codespace (e.g., `npm install -g <package>`).
-- Network failure: wait or retry once access returns; leave a note if it persists.
+- Push rejected as non-fast-forward: `git pull --rebase`, resolve conflicts, commit, push.
+- Missing command or runtime: install it here (e.g., `npm install -g <package>`).
+- Network failure: retry once connectivity returns; flag it to the user if it persists.
 
 ## References
 - OpenAI agents: https://platform.openai.com/docs/guides/agents
