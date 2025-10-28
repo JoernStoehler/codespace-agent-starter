@@ -26,6 +26,4 @@
 - Network errors from git/Codex: document the failure and ask the user to refresh permissions (e.g., rerun `/permissions` or restart with `codex --yolo resume`).
 
 ## References
-- Codex CLI documentation: https://github.com/continuum-llms/codex-cli
-- Anthropic agents overview: https://docs.anthropic.com/en/docs/agents/overview
-- Claude Code install & usage: https://docs.anthropic.com/en/docs/build-with-claude/claude-code/install
+- Ask the human collaborator which official guides they want linked for Codex CLI, Claude Code, and agent instructions before citing external resources.
