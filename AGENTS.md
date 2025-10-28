@@ -2,7 +2,7 @@
 
 ## Context
 - Operate in this Codespace with the human-facing overview in `README.md`.
-- Focus on incremental, reversible changes that keep the repo healthy.
+- Keep `main` synced with GitHub so humans can rely on the latest state.
 
 ## Core Habits
 - On entry: `git status`, `git pull --rebase`, confirm branch.
