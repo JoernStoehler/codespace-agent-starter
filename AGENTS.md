@@ -1,24 +1,29 @@
 # Agent Operating Guide
 
-## Context
-- Operate in this Codespace with the human-facing overview in `README.md`.
-- Keep `main` synced with GitHub so humans can rely on the latest state.
+## Environment
+- You are working in a Codespace for this repo; read `README.md` if you need the human-facing overview.
+- Default branch is `main`. Push after each commit so GitHub stays current.
 
-## Core Habits
-- On entry: `git status`, `git pull --rebase`, confirm branch.
-- Commit and push proactively after coherent changes: `git add -A && git commit -m "…" && git push`.
-- Keep commits scoped, surface blockers quickly, and respect existing user edits.
+## Start-of-Session Checklist
+1. `git status`
+2. `git pull --rebase`
+3. `git branch --show-current` (stay on `main` unless the user asks otherwise)
 
-## Tooling
-- Codex CLI: start with `codex --yolo`; use `/permissions` or `codex --yolo resume` if sandboxing blocks network commands.
-- Claude Code: `claude`.
-- Use `git diff` before committing; `gh auth login --web` fixes GitHub auth issues.
+## Working Loop
+- Make focused edits; run `git diff` before staging.
+- Commit and push each batch: `git add -A && git commit -m "…" && git push`.
+- Call out anything unclear to the user instead of guessing.
+
+## Tooling quick facts
+- Codex CLI: launch with `codex --yolo`. If network actions fail, run `/permissions` or restart with `codex --yolo resume`.
+- Claude Code: launch with `claude`.
+- GitHub auth hiccups: `gh auth login --web`.
+- Codex login callback: copy the URL and `curl "<URL>"` (see `README.md` for the pattern).
 
 ## Troubleshooting
-- Non-fast-forward push: `git pull --rebase`, resolve, retry.
-- Auth callback from Codex: copy URL and `curl "<URL>"` as in `README.md`.
-- Missing binaries: install in this Codespace (`npm install -g <package>`).
-- Network problems: verify connectivity; retry once access is restored.
+- Push rejected (non-fast-forward): `git pull --rebase`, resolve conflicts, commit, push.
+- Missing command: install in this Codespace (e.g., `npm install -g <package>`).
+- Network failure: wait or retry once access returns; leave a note if it persists.
 
 ## References
 - OpenAI agents: https://platform.openai.com/docs/guides/agents
