@@ -23,7 +23,7 @@
 ## Troubleshooting
 - Push rejected as non-fast-forward: `git pull --rebase`, resolve conflicts, commit, push.
 - Missing command/runtime: install it here (e.g., `npm install -g <package>`).
-- Network failure: retry when connectivity returns and notify the human if it persists.
+- Repeated network errors (git or Codex): confirm you are in yolo mode (`codex --yolo`), run `/permissions` if needed, and tell the human if access stays blocked.
 
 ## References
 - OpenAI agents: https://platform.openai.com/docs/guides/agents
