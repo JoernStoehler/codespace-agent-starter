@@ -16,14 +16,14 @@
 - Surface ambiguities in the conversation instead of guessing.
 
 ## Tooling & Access
-- Codex CLI: start with `codex --yolo`; if sandboxing blocks outbound calls, run `/permissions` or restart with `codex --yolo resume`.
+- Codex CLI: assume it was launched with `codex --yolo`. If you hit sandbox or network errors, tell the user so they can run `/permissions` or restart with `codex --yolo resume`.
 - Claude Code: run `claude`.
 - GitHub auth issues: `gh auth login --web`.
 
 ## Troubleshooting
 - Push rejected as non-fast-forward: `git pull --rebase`, resolve conflicts, commit, push.
 - Missing command/runtime: install it here (e.g., `npm install -g <package>`).
-- Repeated network errors (git or Codex): confirm you are in yolo mode (`codex --yolo`), run `/permissions` if needed, and tell the human if access stays blocked.
+- Network errors from git/Codex: document the failure and ask the user to refresh permissions (e.g., rerun `/permissions` or restart with `codex --yolo resume`).
 
 ## References
 - OpenAI agents: https://platform.openai.com/docs/guides/agents
