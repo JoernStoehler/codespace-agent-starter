@@ -1,4 +1,4 @@
-# Simple Codespace Template for Codex CLI / Claude Code
+# Codespace Agent Starter (Codex CLI / Claude Code)
 
 ## Why this exists
 The template gives you a Codespace that is already friendly to AI agents. You get:
@@ -15,7 +15,7 @@ If you already have an environment you trust, you can ignore this. Otherwise the
 
 ## One-time setup
 1. **Copy the repo**
-   - Visit https://github.com/JoernStoehler/simple-agent.
+   - Visit https://github.com/JoernStoehler/codespace-agent-starter.
    - Click **Use this template**, choose a name and visibility, then create the repo.
 2. **Create a Codespace**
    - On your new repo, click **Code → Codespaces → Create codespace on main**.
