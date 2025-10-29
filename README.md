@@ -1,63 +1,65 @@
-# A Simple GitHub Repo Template For Projects with Claude Code / Codex CLI
+# Simple Codespace Template for Codex CLI / Claude Code
 
-## What is this?
+## Why this exists
+The template gives you a Codespace that is already friendly to AI agents. You get:
+- A repo and Codespace you can clone without extra setup.
+- `README.md` for humans and `AGENTS.md` / `CLAUDE.md` for agents.
+- A workflow that keeps commits small so mistakes are easy to undo.
 
-I want to show a semi-quick but robust and good-enough way to use AI agents such as Codex CLI and Claude Code as a low-friction replacement with far more capabilities than the chat interfaces usually offer.
+If you already have an environment you trust, you can ignore this. Otherwise the sections below walk you through the minimal steps.
 
-The following components are combined:
-- A private GitHub repository to store and view files
-- GitHub.com as a webpage to view and edit files
-- Git for checkpointing so that AI mistakes can be undone even after several steps
-- A GitHub Codespace as a remote machine that is quick to start and ready for AI agent usage
-- The GitHub Codespace also has a web interface (VSCode) to view and edit files, and to start (one or multiple) terminals in which we can run claude code or codex CLI
-- An instructions file (this file, README.md) for human users
-- A basic, extensible instructions file (AGENTS.md == CLAUDE.md) for AI agents
-- A subscription to ChatGPT Plus, Pro, Claude Pro, or Claude Max, so we don't have to bother with API keys
+## Before you start
+- GitHub account with access to create repositories and Codespaces.
+- Active subscription that allows `@openai/codex` and/or `@anthropic-ai/claude-code`.
+- A few minutes in the Codespace terminal; everything else is point-and-click.
 
-A few notes:
-- AI agents know very well how to use Git, GitHub, Codespaces, VSCode, the command line, and how to interact with files in this environment. The AGENTS.md file provides the agents with the necessary context about where they are operating.
-- AI agents can probably help you figure out not just how to do things, but also what to do and not do.
+## One-time setup
+1. **Copy the repo**
+   - Visit https://github.com/JoernStoehler/simple-agent.
+   - Click **Use this template**, choose a name and visibility, then create the repo.
+2. **Create a Codespace**
+   - On your new repo, click **Code → Codespaces → Create codespace on main**.
+   - Wait for the VS Code UI to load fully.
+3. **Open a terminal inside the Codespace**
+   - `F1` → `> Terminal: Create New Terminal`, or use the top menu (**Terminal → New Terminal**), or `Ctrl+Shift+C`.
+4. **Install the CLIs you need**
+   ```bash
+   npm install -g @openai/codex    # docs: https://github.com/openai/codex
+   npm install -g @anthropic-ai/claude-code
+   ```
+   Skip the one you do not plan to use.
+5. **Authenticate**
+   - **Claude Code**
+     1. Run `claude`.
+     2. Follow the browser prompts to log in.
+   - **Codex CLI (Codespace workaround)**
+     1. Run `codex --yolo` and start the login flow.
+     2. When the browser shows `http://localhost:1455/auth/callback?...`, copy that full URL (the page itself will not load).
+     3. Open a second terminal tab and run:
+        ```bash
+        curl -X GET "<copied-url>"
+        ```
+        Keep the URL inside double quotes.
+     4. The command prints nothing if the login succeeded. Close the second tab.
+     5. Restart `codex --yolo`, run `/status`, and confirm you are logged in. If it still claims you are logged out, try again; if that fails, give up since OpenAI broke their headless login flow again.
+6. **Verify everything works**
+   - Run `codex --yolo` and/or `claude` to start an agent.
+   - Ask it to check if the environment is set up correctly.
+   - Ask it to onboard you and present the typical workflow from your perspective.
+   - Ask it to edit `AGENTS.md` if you have custom instructions for your AI agents.
 
-## First Setup Instructions
+## Day-to-day usage
+1. Reopen the Codespace from your repo (Code → Codespaces).
+2. Launch `codex --yolo` or `claude`.
+3. If this is a brand-new Codespace, repeat the login step; otherwise you should be ready immediately.
+4. The agents will use git to checkpoint changes automatically, as per `AGENTS.md`.
 
-0. Go to the repository page: https://github.com/JoernStoehler/simple-agent
-1. Click the green "Use this template" button at the top of this repository page.
-2. Fill in the repository name (e.g. Jörn's Personal Knowledge Management), and choose whether to make it public or private.
-3. Click "Create repository from template".
-4. Go to the newly created repository page.
-5. Click the green "Code" button, then click the "Codespaces" tab.
-6. Click "Create codespace on main".
-7. Wait for the codespace to start (this may take a few minutes the first time). Wait for the VSCode interface to load fully.
-8. Open a terminal in VSCode. Ways to do this:
-  - F1 then complete "> Terminal: Create New Terminal"
-  - Or click the "Search-Icon <repo-name> [Codespaces: <adjective-noun>]" in the top menu bar, type ">", then type "Terminal" and select "Terminal: Create New Terminal"
-  - Or use the menu burger in the top left corner, select Terminal, select New Terminal
-  - Ctrl+Shift+C
-9. Install your AI agent of choice:
-  - `npm install -g @codex/cli` (the `-g` means global install, so you can run from anywhere)
-  - `npm install -g @anthropic-ai/claude-code`
-10. Start your AI agent of choice:
-  - `codex --yolo`
-  - `claude`
-11. Authenticate your AI agent using your subscription (TODO: instructions for API keys)
-  - For Claude Code:
-    - Run `claude` and follow the login instructions.
-  - For Codex CLI (yes, this one's awkward)
-    - Run `codex --yolo`, follow the login instructions.
-    - You will eventually be redirected to a `localhost` URL that won't load since the Codespace isn't your local machine.
-    - Copy the full URL (`http://localhost:1455/auth/callback?code=ac_...`)
-    - Open a second terminal in VSCode (see step 8)
-    - Run `curl -X GET "<copied-url>"` in the second terminal, make sure to use double quotes around the URL without spaces.
-    - The terminal should return empty output, meaning the authentication was successful. You can now close the second terminal.
-    - The codex CLI should still look as if you aren't authenticated yet; just ignore that. Quit it with Ctrl+C and restart it with `codex --yolo`.
-    - Run `/status` to verify that you are logged in.
-12. Start your agent, ask it to tell you about the project and what example workflows it can do.
-13. Enjoy!
+## Where agents look for guidance
+- `AGENTS.md` — main set of operating instructions.
+- `CLAUDE.md` — just forwards to `AGENTS.md`.
+- External references:
+  - AGENTS.md format: https://agents.md
+  - Codex CLI: https://github.com/openai/codex
+  - Claude Code: https://claude.md
 
-## Regular Usage
-1. Go to your repository page on GitHub.com.
-2. Click the green "Code" button, then click the "Codespaces" tab.
-3. Click "Open codespace" next to your codespace. Or click "New codespace" to create a new one.
-4. Wait for the codespace, and then VSCode, to start (this should be faster now).
-5. Open a terminal in VSCode (see step 8 above).
-6. If you created a new codespace, you will have to authenticate again. Otherwise you should be good to go.
+If you change how the repo should be used, update `AGENTS.md` so the next agent sees it.

@@ -16,8 +16,8 @@
 - Surface ambiguities in the conversation instead of guessing.
 
 ## Tooling & Access
-- Codex CLI: assume it was launched with `codex --yolo`. If you hit sandbox or network errors, tell the user so they can run `/permissions` or restart with `codex --yolo resume`.
-- Claude Code: run `claude`.
+- Codex CLI: launch with `codex --yolo`. Install or update via `npm install -g @openai/codex` (docs: https://github.com/openai/codex). If network operations fail, inform the user so they can run `/permissions` or restart with `codex --yolo resume`.
+- Claude Code: run `claude`. Install docs live at https://claude.md (Anthropic’s official guide).
 - GitHub auth issues: `gh auth login --web`.
 
 ## Troubleshooting
@@ -26,4 +26,7 @@
 - Network errors from git/Codex: document the failure and ask the user to refresh permissions (e.g., rerun `/permissions` or restart with `codex --yolo resume`).
 
 ## References
-- Ask the human collaborator which official guides they want linked for Codex CLI, Claude Code, and agent instructions before citing external resources.
+- AGENTS.md spec: https://agents.md
+- Codex CLI docs: https://github.com/openai/codex
+- Claude Code docs: https://claude.md
+- Repo guidance: `README.md`, `CLAUDE.md`
