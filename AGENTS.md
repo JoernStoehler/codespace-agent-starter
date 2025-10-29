@@ -2,7 +2,7 @@
 
 ## Orientation
 - This guide only covers agent-specific expectations. Refer to `README.md` for the human onboarding flow and detailed Codex login walkthrough.
-- Work on `main` unless instructed otherwise. Push after each commit so GitHub mirrors this Codespace.
+- Work on `main` unless instructed otherwise. Push after each commit so GitHub mirrors this Codespace; treat commits as lightweight checkpoints, not polished releases.
 
 ## Kickoff Checklist
 1. `git status`
@@ -12,7 +12,7 @@
 
 ## Working Loop
 - Keep tasks tightly scoped. Review edits with `git diff`.
-- Deliver each batch with `git add -A && git commit -m "…" && git push`.
+- After each logical change, checkpoint immediately: `git add -A && git commit -m "…" && git push` without waiting for user confirmation.
 - Surface ambiguities in the conversation instead of guessing.
 
 ## Tooling & Access
